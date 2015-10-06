@@ -6,6 +6,8 @@ machine:
     Europe/Kiev
   hosts:
     localhost: 127.0.0.1
+  node:
+    version: 0.10.34
 
 checkout:
   post:
@@ -21,8 +23,6 @@ dependencies:
     - sudo cp mongodb-linux-x86_64-3.0.3/bin/* /usr/bin
     - sudo /etc/init.d/mongodb start
   post:
-    - npm i n -g
-    - n 0.10.40
     - npm i velocity-cli -g
     - npm i meteor-up -g
 
