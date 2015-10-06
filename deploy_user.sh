@@ -1,0 +1,2 @@
+cd user
+mup deploy

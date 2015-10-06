@@ -1,0 +1,33 @@
+{
+  "servers": [
+    {
+      "host": "95.85.4.110",
+      "username": "root",
+      "pem": "~/.ssh/id_rsa.pub",
+      "env": {}
+    }
+  ],
+
+  "setupMongo": false,
+
+  "setupNode": false,
+
+  "nodeVersion": "0.10.34",
+
+  "setupPhantom": false,
+
+  "enableUploadProgressBar": true,
+
+  "appName": "testApp",
+
+  "app": "../user",
+
+  "env": {
+    "PORT": 3003,
+    "ROOT_URL": "95.85.4.11",
+    "MONGO_URL": "mongodb://127.0.0.1:27017/test",
+    "MONGO_OPLOG_URL": "mongodb://127.0.0.1:27017/local"
+  },
+
+  "deployCheckWaitTime": 30
+}

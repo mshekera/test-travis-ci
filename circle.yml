@@ -1,0 +1,33 @@
+general:
+  build_dir: user
+
+machine:
+  timezone:
+    Europe/Kiev
+  node:
+    vesion: 0.10.34
+  hosts:
+    localhost: 127.0.0.1
+dependencies:
+  cache_directories:
+    - mongodb-linux-x86_64-3.0.3
+  pre:
+    - if [[ ! -d mongodb-linux-x86_64-3.0.3 ]]; then wget http://downloads.mongodb.org/linux/mongodb-linux-x86_64-3.0.3.tgz && tar xvzf mongodb-linux-x86_64-3.0.3.tgz; fi
+    - sudo /etc/init.d/mongodb stop
+    - sudo cp mongodb-linux-x86_64-3.0.3/bin/* /usr/bin
+    - sudo /etc/init.d/mongodb start
+    - sudo npm i n -g
+    - sudo n 0.10.40
+  post:
+    - sudo npm i velocity-cli -g
+    - sudo npm i meteor-up -g
+
+test:
+  override:
+    - velocity test-app --ci
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - bash ./deploy_user.sh
