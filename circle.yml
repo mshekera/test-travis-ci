@@ -4,10 +4,14 @@ general:
 machine:
   timezone:
     Europe/Kiev
-  node:
-    vesion: 0.10.34
   hosts:
     localhost: 127.0.0.1
+
+checkout:
+  post:
+    - if grep -q jasmine user/.meteor/packages; then echo sanjo:jasmine >> user/.meteor/packages; fi
+    - if grep -q html-reporter user/.meteor/packages; then echo velocity:html-reporter >> user/.meteor/packages; fi
+
 dependencies:
   cache_directories:
     - mongodb-linux-x86_64-3.0.3
@@ -16,9 +20,9 @@ dependencies:
     - sudo /etc/init.d/mongodb stop
     - sudo cp mongodb-linux-x86_64-3.0.3/bin/* /usr/bin
     - sudo /etc/init.d/mongodb start
+  post:
     - sudo npm i n -g
     - sudo n 0.10.40
-  post:
     - sudo npm i velocity-cli -g
     - sudo npm i meteor-up -g
 
