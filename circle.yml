@@ -22,9 +22,9 @@ dependencies:
     - sudo /etc/init.d/mongodb start
   post:
     - npm i n -g
-    - sudo n 0.10.40
-    - sudo npm i velocity-cli -g
-    - sudo npm i meteor-up -g
+    - n 0.10.40
+    - npm i velocity-cli -g
+    - npm i meteor-up -g
 
 test:
   override:
