@@ -21,7 +21,7 @@ dependencies:
     - sudo cp mongodb-linux-x86_64-3.0.3/bin/* /usr/bin
     - sudo /etc/init.d/mongodb start
   post:
-    - sudo npm i n -g
+    - npm i n -g
     - sudo n 0.10.40
     - sudo npm i velocity-cli -g
     - sudo npm i meteor-up -g
